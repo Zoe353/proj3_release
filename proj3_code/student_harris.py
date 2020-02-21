@@ -103,7 +103,6 @@ def get_gradients(image):
     sobel_y = np.array([[1,2,1],[0,0,0],[-1,-2,-1]])
     conv_imagex = my_filter2D(image,sobel_x)
     conv_imagey = my_filter2D(image,sobel_y)
-    row,col = conv_imagex.shape
 
     ix = -1*conv_imagex
     iy = conv_imagey
