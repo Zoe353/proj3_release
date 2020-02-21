@@ -1,0 +1,28 @@
+Metadata-Version: 1.2
+Name: 4676-Fall2019-Proj3
+Version: 1.0.0
+Summary: UNKNOWN
+Home-page: https://sites.google.com/view/cs4476-6476-sp2020/problem-sets/ps3
+Author: Georgia Institute of Technology
+Author-email: mitchdonley@gatech.edu
+License: MIT
+Description: # CS 6476 project 3: [Local Feature Matching](https://www.cc.gatech.edu/~hays/compvision/proj2/)
+        
+        
+        # Setup
+        - Install <a href="https://conda.io/miniconda.html">Miniconda</a> (pyhon 3.6).
+        - Create a conda environment, using the appropriate command. On Windows, open the installed "Conda prompt" to run this command. On MacOS and Linux, you can just use a terminal window to run the command. Modify the command based on your OS ('linux', 'mac', or 'win'): `conda env create -f proj3_env_<OS>.yml`
+        - This should create an environment named `proj3`. Activate it using the following Windows command: `activate proj3` or the following MacOS / Linux command: `conda activate proj3`.
+        - Run the notebook using: `jupyter notebook ./proj3_code/proj3.ipynb`
+        - Generate the submission once you're finished using `python zip_submission.py`
+        
+Keywords: computer-vision
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >= 3.5
