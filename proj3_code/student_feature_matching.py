@@ -3,6 +3,8 @@ from sklearn.decomposition import PCA
 from sklearn.neighbors import KDTree,NearestNeighbors
 from scipy.spatial.distance import cdist
 
+
+
 def compute_feature_distances(features1, features2):
     """
     This function computes a list of distances from every feature in one array
@@ -20,15 +22,9 @@ def compute_feature_distances(features1, features2):
     ###########################################################################
     # TODO: YOUR CODE HERE                                                    #
     ###########################################################################
-    # n,feat_dim = features1.shape
-    # m,feat_dim = features2.shape
-    # dists = np.zeros((n,m))
-    # for i in range(n):
-    #     for j in range(m):
-    #         diff = np.linalg.norm(features1[i] - features2[j])
-    #         dists[i][j] = diff
 
-    dists = cdist(features1, features2, 'euclidean')
+    dists = np.sqrt(-2 * np.dot(features1, features2.T) + np.sum(np.square(features2), axis=1) + np.transpose(
+		[np.sum(np.square(features1), axis=1)]))
 
     # raise NotImplementedError('`match_features` function in ' +
     #     '`student_feature_matching.py` needs to be implemented')
@@ -74,7 +70,7 @@ def match_features(features1, features2, x1, y1, x2, y2):
     ###########################################################################
     dists = compute_feature_distances(features1,features2)
     n,m = dists.shape
-    alpha = 0.8
+    alpha = 0.88
     matches = []
     confidences = []
     for i in range(n):
@@ -157,7 +153,7 @@ def accelerated_matching(features1, features2, x1, y1, x2, y2):
     #############################################################################
     matches = []
     confidences = []
-    alpha = 0.5
+    alpha = 0.8
     k1,d = features1.shape
     features = np.vstack((features1, features2))
     knn = NearestNeighbors(n_neighbors=3,algorithm='kd_tree',leaf_size=100,radius=20)

@@ -116,13 +116,12 @@ def get_feat_vec(x,y,magnitudes, orientations,feature_width):
     # dominant_index = np.where(histogram==np.max(histogram))
     # dominant_direction = angles[dominant_index]
     # orientations = (orientations+PI-dominant_direction)% (2*PI) - PI
+    subpatch = 4
     PI = np.pi
-    for j in range(4):
-        for i in range(4):
+    for j in range(subpatch):
+        for i in range(subpatch):
             topleft_x = int(x-feature_width//2+i*feature_width//4)
             topleft_y = int(y-feature_width//2+j*feature_width//4)
-            # neigh_orientations = orientations[topleft_y:int(topleft_y+feature_width//4),topleft_x:int(topleft_x+feature_width//4)].flatten()
-            # neigh_magnitudes = magnitudes[topleft_y:int(topleft_y+feature_width//4),topleft_x:int(topleft_x+feature_width//4)].flatten()
             neigh_orientations = orientations[topleft_y:int(topleft_y + feature_width // 4), topleft_x:int(topleft_x + feature_width // 4)].flatten()
             neigh_magnitudes = magnitudes[topleft_y:int(topleft_y + feature_width // 4),topleft_x:int(topleft_x + feature_width // 4)].flatten()
             his,interval = np.histogram(neigh_orientations,bins=8,range=(-PI,PI),weights=neigh_magnitudes)
@@ -167,7 +166,7 @@ def get_features(image, x, y, feature_width):
     # TODO: YOUR CODE HERE                                                      #                                          #
     #############################################################################
     # hyparameter tuning#
-    feature_width = 16
+    #feature_width = 16
     #==================#
     dx,dy = get_gradients(image)
     magnitudes, orientations = get_magnitudes_and_orientations(dx,dy)

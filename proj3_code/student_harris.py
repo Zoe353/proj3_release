@@ -193,7 +193,7 @@ def second_moments(ix, iy, ksize = 7, sigma = 10):
     #############################################################################
     # TODO: YOUR SECOND MOMENTS CODE HERE                                       #
     #############################################################################
-    sigma  =3
+    #sigma  = 3
     kernel = get_gaussian_kernel(ksize, sigma)
     sx2 = my_filter2D(ix * ix, kernel)
     sxsy = my_filter2D(ix * iy, kernel)
